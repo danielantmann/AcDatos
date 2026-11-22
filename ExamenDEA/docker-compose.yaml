@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: SqlLocal
+    container_name: SqlLocale
     ports:
       - "3306:3306"
     environment:
