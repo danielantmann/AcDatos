@@ -85,8 +85,12 @@ public class MainEj2 {
             } else {
                 IO.println("Error al dar de alta al Jugador.");
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+         } catch (NumberFormatException e) {
+        IO.println("Error: debes introducir un número válido para tokens o nivel.");
+    } catch (IllegalArgumentException e) {
+        IO.println("Error de validación: " + e.getMessage());
+    } catch (Exception e) {
+        IO.println("Error inesperado al guardar los datos: " + e.getMessage());
+    }
     }
 }
