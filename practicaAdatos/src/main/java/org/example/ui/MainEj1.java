@@ -73,3 +73,43 @@ public class MainEj1 {
         }
     }
 }
+
+/*
+ * =========================================================================
+ * PLANTILLAS RÁPIDAS PARA EXPORTAR TODAS LAS MISIONES COMPLETADAS (XML)
+ * =========================================================================
+ *
+ * OPCIÓN A: Exportar TODOS los jugadores con sus misiones completadas
+ * (Sustituye el paso 2 de exportarMisionesJugador2() por esto)
+ * -------------------------------------------------------------------------
+ * List<Jugador> jugadores = jugadorService.findAll(); // o jugadorRepository.findAll()
+ *
+ * for (Jugador jugador : jugadores) {
+ *     Long idActual = jugador.getJugadorId();
+ *     PlayerXml playerXml = personajeService.buildPlayerXmlByJugadorId(idActual);
+ *
+ *     completedMission.getPlayers().removeIf(p -> idActual.equals(p.getId()));
+ *     completedMission.getPlayers().add(playerXml);
+ * }
+ *
+ *
+ * OPCIÓN B: Exportar TODAS las misiones completadas en lista plana (sin agrupar por jugador)
+ * (Útil si la raíz <misionesCompletadas> lleva directamente una lista de <mision>)
+ * -------------------------------------------------------------------------
+ * // 1. En el servicio:
+ * public List<CmissionXml> buildAllCompletedMissionsXml() {
+ *     List<MisionCompletada> todas = misionCompletadaRepository.findAll();
+ *     List<CmissionXml> resultado = new ArrayList<>();
+ *
+ *     for (MisionCompletada mc : todas) {
+ *         Personaje personaje = personajeRepository.findById(mc.getPersonajeId()).orElseThrow();
+ *         resultado.add(new CmissionXml(mc.getMisionId(), personaje.getNombre()));
+ *     }
+ *     return resultado;
+ * }
+ *
+ * // 2. En el Main:
+ * List<CmissionXml> todasLasMisiones = personajeService.buildAllCompletedMissionsXml();
+ * completedMission.getCmissions().clear();
+ * completedMission.getCmissions().addAll(todasLasMisiones);
+ */
