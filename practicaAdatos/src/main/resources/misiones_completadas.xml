@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CompletedMission>
+    <player>
+        <cmission>
+            <id>1</id>
+            <personaje>Lucas</personaje>
+        </cmission>
+        <cmission>
+            <id>2</id>
+            <personaje>Lucas</personaje>
+        </cmission>
+        <cmission>
+            <id>1</id>
+            <personaje>Marwan</personaje>
+        </cmission>
+    </player>
+    <player/>
+    <player>
+        <id>2</id>
+        <cmission>
+            <id>2</id>
+            <personaje>Mago</personaje>
+        </cmission>
+        <cmission>
+            <id>3</id>
+            <personaje>Pícaro</personaje>
+        </cmission>
+    </player>
+</CompletedMission>
